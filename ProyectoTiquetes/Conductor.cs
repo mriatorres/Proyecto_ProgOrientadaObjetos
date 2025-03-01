@@ -8,15 +8,18 @@ namespace ProyectoTiquetes
 {
     public class Conductor
     {
-        public string Nombre="";
-        public string NumeroAutomovil="";
-        public Ruta RutaConductor;
+        public string ID { get; set; }
+        public string Nombre { get; set; }
+        public string NumeroAutomovil{ get; set; }
+        public Ruta RutaConductor{ get; set; }
 
-        public Conductor(string nombre, string numeroAutomovil, Ruta rutaConductor)
+        public Conductor(string id, string nombre, string numeroAutomovil, Ruta rutaConductor)
         {
-            nombre = this.Nombre;
-            numeroAutomovil = this.NumeroAutomovil;
-            rutaConductor = this.RutaConductor;
+            ID = id;
+            Nombre = nombre;
+            NumeroAutomovil = numeroAutomovil;
+            RutaConductor = rutaConductor;
+
         }
     }
 }

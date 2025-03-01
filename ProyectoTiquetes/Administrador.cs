@@ -8,13 +8,13 @@ namespace ProyectoTiquetes
 {
     public class Administrador
     {
-        public string Correo = "";
-        public string Contrasenia = "";
+        public string Correo { get; private set; }
+        public string Contrasenia { get; private set; }
 
         public Administrador(string correo, string contrasenia)
         {
-            correo = this.Correo;
-            contrasenia = this.Contrasenia;
+            Correo = correo;
+            Contrasenia = contrasenia;
         }
 
         public void GestionarCuenta()
