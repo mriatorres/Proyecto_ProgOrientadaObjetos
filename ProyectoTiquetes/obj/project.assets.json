@@ -8,23 +8,23 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\B09S116est\\.nuget\\packages\\": {},
+    "C:\\Users\\MARLENY\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\B09S116est\\Desktop\\Proyecto_logicaProgramacion\\ProyectoTiquetes\\ProyectoTiquetes.csproj",
+      "projectUniqueName": "C:\\Users\\MARLENY\\source\\repos\\Proyecto_ProgOrientadaObjetos\\ProyectoTiquetes\\ProyectoTiquetes.csproj",
       "projectName": "ProyectoTiquetes",
-      "projectPath": "C:\\Users\\B09S116est\\Desktop\\Proyecto_logicaProgramacion\\ProyectoTiquetes\\ProyectoTiquetes.csproj",
-      "packagesPath": "C:\\Users\\B09S116est\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\B09S116est\\Desktop\\Proyecto_logicaProgramacion\\ProyectoTiquetes\\obj\\",
+      "projectPath": "C:\\Users\\MARLENY\\source\\repos\\Proyecto_ProgOrientadaObjetos\\ProyectoTiquetes\\ProyectoTiquetes.csproj",
+      "packagesPath": "C:\\Users\\MARLENY\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\MARLENY\\source\\repos\\Proyecto_ProgOrientadaObjetos\\ProyectoTiquetes\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\B09S116est\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\MARLENY\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -51,7 +51,8 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net8.0": {
@@ -72,7 +73,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

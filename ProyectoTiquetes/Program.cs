@@ -1,7 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using ProyectoTiquetes;
 
-Console.WriteLine("Hello, World!");
+Console.WriteLine("Hola :)");
 
 
 public class program { 
@@ -10,9 +10,13 @@ private static List<Cajero> cajeros = new List<Cajero>();
 private static List<Conductor> conductores = new List<Conductor>();
 private static List<Ruta> rutas = new List<Ruta>();
 private static Administrador administrador;
+private static Cajero cajeroActual; // Variable para almacenar el cajero autenticado
 
-static void Main(string[] args)
+
+    static void Main(string[] args)
 {
+
+    
     // Inicializar datos
     administrador = new Administrador("Andreni", "admin123");
     cajeros.Add(new Cajero(1, 101, "rafael@ejemplo.com", "rafael123", "Rafael"));
@@ -52,6 +56,7 @@ static bool AutenticarUsuario()
             if (usuario == cajero.Nombre && contraseña == cajero.Contrasenia && rol.Equals("Cajero", StringComparison.OrdinalIgnoreCase))
             {
                 Console.WriteLine($"Bienvenido {usuario}, Rol: {rol}");
+                cajeroActual = cajero; // Almacenar el cajero autenticado
                 return true;
             }
         }
@@ -75,7 +80,7 @@ static void MostrarMenu()
             MostrarMenuAdministrador();
             break;
         case "2":
-            MostrarMenuCajero();
+            MostrarMenuCajero(cajeroActual); // Pasar el cajero actual
             break;
         default:
             Console.WriteLine("Opción no válida.");
@@ -362,4 +367,6 @@ static void VerConductores()
     }
 
 }
+
+
 
