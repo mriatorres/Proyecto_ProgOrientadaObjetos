@@ -8,15 +8,15 @@ namespace ProyectoTiquetes
 {
     public class Factura
     {
-        public int CantidadTiquetes;
-        public float PrecioTotal;
-        public int NumeroPedido;
+        public int CantidadTiquetes { get; set; }
+        public int PrecioTotal { get; set; }
+        public int NumeroPedido { get; set; }
 
-        public Factura(int numeroPedido, int cantidadTiquetes, float precioTotal)
+        public Factura(int numeroPedido, int cantidadTiquetes, int precioTotal)
         {
-            numeroPedido = this.NumeroPedido;
-            cantidadTiquetes = this.CantidadTiquetes;
-            precioTotal = this.PrecioTotal;
+            CantidadTiquetes = cantidadTiquetes;
+            PrecioTotal = precioTotal;
+            NumeroPedido = numeroPedido;
         }
     }
 }

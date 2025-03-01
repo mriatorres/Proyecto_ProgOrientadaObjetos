@@ -8,21 +8,23 @@ namespace ProyectoTiquetes
 {
     public class Ruta
     {
-        public int IdRuta;
-        public string Origen="";
-        public string Destino = "";
-        public string Horario = "";
-        public int NumTiquetesDisponibles;
-        public int NumTiquetesVendidos;
+        public int IdRuta { get; set; }
+        public string Origen { get; set; }
+        public string Destino { get; set; }
+        public string Horario { get; set; }
+        public int NumTiquetesDisponibles { get; set; }
+        public int NumTiquetesVendidos { get; set; }
+        public int PrecioTiquete { get; set; }
 
-        public Ruta(int idRuta, string origen, string destino, string horario, int numTiquetesDisponibles, int numTiquetesVendidos)
+        public Ruta(int idRuta, string origen, string destino, string horario, int numTiquetesDisponibles, int numTiquetesVendidos, int precioTiquete)
         {
-            idRuta = this.IdRuta;
-            origen = this.Origen;
-            destino = this.Destino; 
-            horario = this.Horario; 
-            numTiquetesDisponibles = this.NumTiquetesDisponibles;
-            numTiquetesVendidos = this.NumTiquetesVendidos;
+            IdRuta = idRuta;
+            Origen = origen;
+            Destino = destino;
+            Horario = horario;
+            NumTiquetesDisponibles = numTiquetesDisponibles;
+            NumTiquetesVendidos = numTiquetesVendidos;
+            PrecioTiquete = precioTiquete;
         }
     }
 }

@@ -8,19 +8,19 @@ namespace ProyectoTiquetes
 {
     public class Cajero
     {
-        public int ID;
-        public int NumTrabajador;
-        public string Contrasenia = "";
-        protected string Correo ="";
-        public string Nombre = "";
+        public int ID { get; set; }
+        public int NumTrabajador { get; set; }
+        public string Contrasenia { get; set; }
+        public string Correo { get; set; }
+        public string Nombre { get; set; }
 
         public Cajero(int id, int numTrabajador, string correo, string contrasenia, string nombre)
         {
-            id = this.ID;
-            numTrabajador = this.NumTrabajador;
-            correo = this.Correo;
-            contrasenia = this.Contrasenia;
-            nombre = this.Nombre;
+            ID = id;
+            NumTrabajador = numTrabajador;
+            Correo = correo;
+            Contrasenia = contrasenia;
+            Nombre = nombre;
         }
 
         public void GestionarCuenta()

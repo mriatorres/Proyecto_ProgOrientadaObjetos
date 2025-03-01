@@ -1,7 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using ProyectoTiquetes;
 
-Console.WriteLine("Hola :)");
+//Console.WriteLine("Hola :)");
 
 
 public class program { 
@@ -16,54 +16,74 @@ private static Cajero cajeroActual; // Variable para almacenar el cajero autenti
     static void Main(string[] args)
 {
 
-    
-    // Inicializar datos
+     // Inicializar datos
     administrador = new Administrador("Andreni", "admin123");
     cajeros.Add(new Cajero(1, 101, "rafael@ejemplo.com", "rafael123", "Rafael"));
     cajeros.Add(new Cajero(2, 102, "sandra@ejemplo.com", "sandra123", "Sandra"));
+    rutas.Add(new Ruta(1, "Homecenter", "Destino1", "Horario1", 23, 18, 10000));
+    rutas.Add(new Ruta(2, "IKEA", "Destino2", "Horario2", 25, 15, 20000));
     conductores.Add(new Conductor("John", "8547", rutas[0]));
     conductores.Add(new Conductor("Oswaldo", "5463", rutas[1]));
-    rutas.Add(new Ruta(1, "Homecenter", "Destino1", "Horario1",23,18));
-    rutas.Add(new Ruta(2, "IKEA", "Destino2", "Horario2",25,15));
+    
 
-    // Autenticación del usuario
-    if (AutenticarUsuario())
-    {
-        MostrarMenu();
+        // Autenticación del usuario
+        Console.WriteLine("COMERCIO ONLINE 101  \n Bienvenido al sistema de empleados \n A continuacion inicie sesión con su usuario: \n");
+        string rol = AutenticarUsuario();
+        if (rol != null)
+        {
+            if (rol.Equals("Administrador", StringComparison.OrdinalIgnoreCase))
+            {
+                MostrarMenuAdministrador();
+            }
+            else
+            {
+                MostrarMenuCajero(cajeroActual); // Pasar el cajero autenticado
+            }
+        }
     }
-}
 
-static bool AutenticarUsuario()
+static string AutenticarUsuario()
 {
     int intentos = 3;
 
     for (int i = 0; i < intentos; i++)
     {
-        Console.Write("Ingrese su usuario: ");
-        string usuario = Console.ReadLine();
-        Console.Write("Ingrese su contraseña: ");
-        string contraseña = Console.ReadLine();
-        Console.Write("Ingrese su rol (Administrador/Cajero): ");
-        string rol = Console.ReadLine();
-        if (usuario == administrador.Correo && contraseña == administrador.Contrasenia && rol.Equals("Administrador", StringComparison.OrdinalIgnoreCase))
+        Console.Write("~Ingrese su usuario: ~ ");
+        string usuario = Console.ReadLine().Trim();
+        Console.Write("~ Ingrese su contraseña: ~ ");
+        string contraseña = Console.ReadLine().Trim();
+        Console.Write("~ Ingrese su rol (Administrador/Cajero): ~ ");
+        string rol = Console.ReadLine().Trim();
+
+        //Autenticar Admin
+        if (administrador != null && usuario.Equals(administrador.Correo, StringComparison.OrdinalIgnoreCase) && contraseña.Equals(administrador.Contrasenia) &&
+        rol.Equals("Administrador", StringComparison.OrdinalIgnoreCase))
         {
-            Console.WriteLine($"Bienvenido {usuario}, Rol: {rol}");
-            return true;
+        Console.WriteLine($"Bienvenido {usuario}, Rol: {rol}");
+        return "Administrador"; // Return the role
         }
 
-        foreach (var cajero in cajeros)
+        /*foreach (var cajero in cajeros)
         {
-            if (usuario == cajero.Nombre && contraseña == cajero.Contrasenia && rol.Equals("Cajero", StringComparison.OrdinalIgnoreCase))
-            {
+                // Debugging output inside the loop
+                Console.WriteLine($"Comparing user: '{usuario}' with '{cajero.Nombre}'");
+                Console.WriteLine($"Comparing password: '{contraseña}' with '{cajero.Contrasenia}'");
+                Console.WriteLine($"Comparing role: '{rol}' with 'Cajero'");
+
+                if (usuario.Equals(cajero.Nombre, StringComparison.OrdinalIgnoreCase) && contraseña.Equals(cajero.Contrasenia) && 
+                rol.Equals("Cajero", StringComparison.OrdinalIgnoreCase))
+                {
                 Console.WriteLine($"Bienvenido {usuario}, Rol: {rol}");
                 cajeroActual = cajero; // Almacenar el cajero autenticado
-                return true;
+                return "Cajero";
             }
-        }
+        }*/
         Console.WriteLine("Datos incorrectos. Intente nuevamente.");
+        
+        
     }
     Console.WriteLine("Se ha excedido el número de intentos. Contacte a soporte técnico.");
-    return false;
+    return "Error";
 }
 
 static void MostrarMenu()
@@ -170,7 +190,7 @@ static void AgregarCajero()
         Console.Write("Ingrese el correo del cajero: ");
         string correo = Console.ReadLine(); // Recolect Correo
         Console.Write("Ingrese la contraseña del cajero: ");
-        string contraseña = Console.ReadLine(); // Recollect Contraseña
+        string contraseña = Console.ReadLine(); // Recolectar Contraseña
         Console.Write("Ingrese el nombre del cajero: ");
         string nombre = Console.ReadLine(); // Recolect Nombre
         // Se envian los datos recolectados a los parametros de Cajero
@@ -255,31 +275,46 @@ static void VerCajeros()
     {
         Console.Write("Ingrese la nueva contraseña: ");
         string nuevaContrasenia = Console.ReadLine();
-        cajero.Contrasenia = nuevaContrasenia; // Ensure that Contrasenia is accessible
+        cajero.Contrasenia = nuevaContrasenia; //Contrasenia es accesible
         Console.WriteLine("Contraseña cambiada correctamente.");
     }
 
     static void RealizarVenta()
-{
-    Console.Write("\nIngrese el nombre del comprador: ");
-    string nombreComprador = Console.ReadLine();
-    Console.Write("Seleccione el número de la ruta: ");
-    int numRuta = int.Parse(Console.ReadLine()) - 1;
-
-    if (numRuta >= 0 && numRuta < rutas.Count)
     {
-        Console.Write("Ingrese la cantidad de tiquetes: ");
-        int cantidadTiquetes = int.Parse(Console.ReadLine());
-        Factura factura = new Factura(numRuta + 1, cantidadTiquetes, 0); // Aquí se puede calcular el precio total
-        cajeros[0].RealizarVenta(factura); // Suponiendo que el cajero que realiza la venta es el primero en la lista
-    }
-    else
-    {
-        Console.WriteLine("Número de ruta no válido.");
-    }
-}
+        Console.Write("\nIngrese el nombre del comprador: ");
+        string nombreComprador = Console.ReadLine();
+        Console.Write("Seleccione el número de la ruta: ");
+        int numRuta = int.Parse(Console.ReadLine()) - 1; // ajuste para un indice en cero
 
-static void GestionarConductores()
+        // Revisar si la ruta seleccionada es valida
+        if (numRuta >= 0 && numRuta < rutas.Count)
+        {
+            Console.Write("Ingrese la cantidad de tiquetes: ");
+            int cantidadTiquetes = int.Parse(Console.ReadLine());
+
+            // Precio por tiquete de la ruta seleccionada
+            int precioPorTiquete = rutas[numRuta].PrecioTiquete; 
+            int totalPrecio = precioPorTiquete * cantidadTiquetes;
+
+            // Crear la factura
+            Factura factura = new Factura(numRuta + 1, cantidadTiquetes, totalPrecio);
+
+            // Realizar la venta con el cajero autenticado
+            cajeroActual.RealizarVenta(factura);
+
+            // Mostrat compra al usuario
+            Console.WriteLine($"~* Venta realizada con éxito! *~\n");
+            Console.WriteLine($"Comprador: {nombreComprador} \n");
+            Console.WriteLine($"Ruta: '{rutas[numRuta].Origen}' hacia '{rutas[numRuta].Destino}'\n");
+            Console.WriteLine($"Cantidad de tiquetes: {cantidadTiquetes}");
+            Console.WriteLine($"Total a pagar: {totalPrecio:C}"); // Formatear a un espacio decimal
+        }
+        else
+        {
+            Console.WriteLine("Número de ruta no válido.");
+        }
+    }
+    static void GestionarConductores()
 {
     bool salir = false;
 
