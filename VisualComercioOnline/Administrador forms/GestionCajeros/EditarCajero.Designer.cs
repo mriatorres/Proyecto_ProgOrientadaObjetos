@@ -1,6 +1,6 @@
-﻿namespace VisualComercioOnline
+﻿namespace VisualComercioOnline.Administrador_forms.GestionCajeros
 {
-    partial class ManageCajerosForm
+    partial class EditarCajero
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "ManageCajerosForm";
+            this.Text = "EditarCajero";
         }
 
         #endregion

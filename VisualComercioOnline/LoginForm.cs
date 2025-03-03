@@ -66,7 +66,7 @@ namespace VisualComercioOnline
             // Revisa si las credenciales son correctas y abre el menu apropiado
             if (IsValidAdmin(correo, contraseña, rol))
             {
-                AdminMenuForm adminMenu = new AdminMenuForm();
+                AdminMenuForm adminMenu = new AdminMenuForm(administrador);
                 adminMenu.Show();
                 this.Hide();
             }

@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace VisualComercioOnline
+namespace VisualComercioOnline.Administrador_forms.GestionCajeros
 {
-    public partial class AdminMenuForm: Form
+    public partial class VerCajeros: Form
     {
-        public AdminMenuForm()
+        public VerCajeros()
         {
             InitializeComponent();
         }
