@@ -17,6 +17,7 @@ namespace VisualComercioOnline
         // Campo para almacenar el cajero actual
         private Cajero cajeroActual;
 
+        
         public CajeroMenuForm(Cajero cajero)
         {
             InitializeComponent();
@@ -51,7 +52,7 @@ namespace VisualComercioOnline
         private void button3_Click(object sender, EventArgs e)
         {
             /*Realizar venta*/
-            RealizarVenta realizarVenta = new RealizarVenta();
+            RealizarVenta realizarVenta = new RealizarVenta(cajeroActual);
             realizarVenta.Show();
             this.Close();
         }

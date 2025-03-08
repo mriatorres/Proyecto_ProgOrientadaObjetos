@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VisualComercioOnline.Administrador_forms;
 using VisualComercioOnline.Administrador_forms.GestionCajeros;
 using VisualComercioOnline.Models;
 
@@ -15,10 +16,17 @@ namespace VisualComercioOnline
     public partial class ManageCajerosForm : Form
     {
         private static Administrador administradorActual;
+
+
+
+
+
         public ManageCajerosForm(Administrador administrador)
         {
             InitializeComponent();
             administradorActual = administrador;
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace VisualComercioOnline
+namespace VisualComercioOnline.Administrador_forms.Gestion_rutas
 {
-    public partial class RealizarVenta: Form
+    public partial class EliminarRuta: Form
     {
-        public RealizarVenta()
+        public EliminarRuta()
         {
             InitializeComponent();
         }

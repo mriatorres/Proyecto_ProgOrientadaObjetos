@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VisualComercioOnline.Administrador_forms;
 using VisualComercioOnline.Models;
 
 namespace VisualComercioOnline
@@ -14,10 +15,15 @@ namespace VisualComercioOnline
     public partial class AdminMenuForm : Form
     {
         private static Administrador administradorActual;
+
+       
+
         public AdminMenuForm(Administrador administrador)
         {
             InitializeComponent();
+            RutaManager.InitializeRutas(); // Inicializa las rutas
             administradorActual = administrador;
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -52,6 +58,16 @@ namespace VisualComercioOnline
             this.Close();
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            //Gestionar rutas
+            ManageRutas managerutas = new ManageRutas(administradorActual);
+            managerutas.Show();
+            this.Close();
+        }
 
+      
+
+        
     }
 }
