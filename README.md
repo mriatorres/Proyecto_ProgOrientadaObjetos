@@ -37,7 +37,7 @@ Antes de comenzar, asegúrate de haber cumplido con los siguientes requisitos:
 
    ```bash
 
-   https://github.com/mriatorres/Proyecto_ProgOrientadaObjetos/master
+   https://github.com/mriatorres/Proyecto_ProgOrientadaObjetos
 
 
 2. Abre el archivo de solución (.sln) en Visual Studio.
