@@ -54,37 +54,59 @@ namespace VisualComercioOnline
             string cantidadTiquetes = txtCantidadTiquetes.Text;
             int cantidadTiquetesnum;
             int numrutaint;
+
+            // Validar que se diligencien los inputs
+            if (string.IsNullOrWhiteSpace(nombreComprador) || string.IsNullOrWhiteSpace(numruta) || string.IsNullOrWhiteSpace(cantidadTiquetes))
+            {
+                MessageBox.Show("Por favor, complete todos los campos.");
+                return;
+            }
+
             if (int.TryParse(cantidadTiquetes, out cantidadTiquetesnum) && int.TryParse(numruta, out numrutaint))
             {
-                // Revisar si la ruta seleccionada es valida
-                if (numrutaint >= 0 && numrutaint < rutasActuales.Count)
+                // Mostrar el número de ruta ingresado y el total de rutas
+                //MessageBox.Show($"Número de ruta ingresado: {numrutaint}, Total de rutas: {rutasActuales.Count}");
+
+                // Construir un mensaje con el número de ruta ingresado y cada ruta disponible
+                StringBuilder rutasInfo = new StringBuilder($"Ruta ingresada: {numrutaint}\nRutas disponibles:\n");
+                for (int i = 0; i < rutasActuales.Count; i++)
                 {
-                    RegistrarVenta(nombreComprador, numrutaint, cantidadTiquetesnum);
+                    var ruta = rutasActuales[i];
+                    rutasInfo.AppendLine($"Numero de ruta: {i}, Origen: {ruta.Origen}, Destino: {ruta.Destino}");
+                }
+                // Mostrar las rutas disponibles
+                MessageBox.Show(rutasInfo.ToString());
+
+                // Validar si la ruta es valida
+                if (numrutaint >= 0 && numrutaint <= rutasActuales.Count)                 
+               {
+                    // Restar 1 para usar como índice
+                    //int rutaIndex = numrutaint - 1;
+
+                    //Try catch block por si ocurre alguna excepcion en la funcion realizar venta
+                    try
+                    {
+                        RegistrarVenta(nombreComprador, numrutaint, cantidadTiquetesnum);
+                        CajeroMenuForm cajeromenu = new CajeroMenuForm(cajeroActual);
+                        cajeromenu.Show();
+                        this.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error al realizar la venta: {ex.Message}");
+                    }
                 }
                 else
                 {
-                    Console.WriteLine("Número de ruta no válido.");
+                    MessageBox.Show("Número de ruta no válido.");
                 }
-
-
             }
             else
             {
-                MessageBox.Show("Por favor, ingrese solo numeros para el campo numero de ruta y la cantidad de tiquetes");
+                MessageBox.Show("Por favor, ingrese solo números para el campo número de ruta y la cantidad de tiquetes.");
             }
-
         }
 
-        /* private void InitializeRutas()
-         {
-             // Inicializa la lista de rutas (llamada al principio del archivo)
-             rutas = new List<Ruta>();
-             {
-                 rutas.Add(new Ruta(1, "Homecenter", "Destino1", "Horario1", 23, 18, 10000));
-                 rutas.Add(new Ruta(2, "IKEA", "Destino2", "Horario2", 25, 15, 20000));
-             }
-
-         }*/
 
         private void RegistrarVenta(string nombreComprador, int numRuta, int cantidadTiquetes)
         {

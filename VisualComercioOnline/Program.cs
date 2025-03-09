@@ -1,3 +1,5 @@
+using VisualComercioOnline.Administrador_forms;
+
 namespace VisualComercioOnline
 {
     internal static class Program
@@ -16,6 +18,9 @@ namespace VisualComercioOnline
             loginForm.ShowDialog();
             this.Close();
              */
+
+            RutaManager.InitializeRutas();
+
             ComercioOnline_SistemaGestion form1 = new ComercioOnline_SistemaGestion();
             form1.ShowDialog(); //App no depende de form1
             Application.Run();
