@@ -1,7 +1,12 @@
 # Proyecto Comercio online 🛒💳🚚📭📦
 ## Desarrollado en C# para el curso de programación orientada a objetos 💡💻🔗🗂
 
+![comercio101_1](https://github.com/user-attachments/assets/6ec87fc8-2a25-4e99-b41b-fb0ccfd18397)
+![comercio101_2](https://github.com/user-attachments/assets/3825cda5-36c1-42c9-b292-ff0fdf7c4d9b)
+
 ## Descripción
+
+
 
 
 Esta es una aplicación simple de Windows Forms construida en C#. La aplicación es comercio online simple donde se manejan dos usuarios 'Cajero' y 'Administrador', la aplicación cuenta con las funciones de realizar ventas, programar envios y gestionar los usuarios dentro del ambiente del comercio.
